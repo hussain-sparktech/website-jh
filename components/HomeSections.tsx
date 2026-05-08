@@ -29,7 +29,7 @@ export function SectionHeader({
   align?: "split" | "center";
 }) {
   return (
-    <div className={`home-section-header ${align}`}>
+    <div className={`home-section-header ${align}${label ? "" : " no-label"}`}>
       {label ? <p className="eyebrow">{label}</p> : null}
       <h2>{title}</h2>
     </div>
