@@ -1,5 +1,5 @@
-import { ClosingCTA, EditorialGrid, InfoBlock, PageHero, TopicsSection } from "@/components/ResearchSections";
-import { researchContent } from "@/lib/researchContent";
+import { ClosingCTA, ResearchArchive, ResearchHero, SelectedHighlightsSection, TopicsSection } from "@/components/ResearchSections";
+import { presentationsData, publicationsData, researchContent } from "@/lib/researchContent";
 import type { Language } from "@/lib/i18n";
 
 export default function ResearchInsightsPage({ params }: { params: { lang: Language } }) {
@@ -7,10 +7,10 @@ export default function ResearchInsightsPage({ params }: { params: { lang: Langu
 
   return (
     <>
-      <PageHero {...t.intro} />
+      <ResearchHero {...t.intro} />
       <TopicsSection {...t.topics} />
-      <EditorialGrid {...t.insights} />
-      <InfoBlock {...t.note} />
+      <SelectedHighlightsSection {...t.highlights} />
+      <ResearchArchive content={t.archive} publications={publicationsData} presentations={presentationsData} />
       <ClosingCTA {...t.closing} language={params.lang} />
     </>
   );
