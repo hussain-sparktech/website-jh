@@ -2,8 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRef } from "react";
 import type { Language } from "@/lib/i18n";
 import { content, type PageKey } from "@/lib/content";
+
+function MenuIcon() {
+  return (
+    <svg className="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 const navItems: Array<{ key: PageKey; href: string }> = [
   { key: "services", href: "/services" },
@@ -21,6 +30,13 @@ export function Header({
   const t = content[language];
   const pathname = usePathname() || `/${language}`;
   const pathWithoutLanguage = pathname.replace(`/${language}`, "") || "";
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+
+  const closeMobileMenu = () => {
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.open = false;
+    }
+  };
 
   return (
     <header className="site-header">
@@ -50,11 +66,13 @@ export function Header({
             DE
           </Link>
         </div>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation">Menu</summary>
+        <details className="mobile-menu" ref={mobileMenuRef}>
+          <summary aria-label="Open navigation">
+            <MenuIcon />
+          </summary>
           <nav aria-label="Mobile navigation">
             {navItems.map((item) => (
-              <Link key={item.key} href={`/${language}${item.href}`}>
+              <Link key={item.key} href={`/${language}${item.href}`} onClick={closeMobileMenu}>
                 {t.meta.nav[item.key]}
               </Link>
             ))}
