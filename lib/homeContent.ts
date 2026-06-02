@@ -173,7 +173,7 @@ export const homeContent: Record<Language, HomeContent> = {
     closing: {
       headline: "Transformation beginnt mit Führung.",
       body: "Ob Sie Ihre HR-Strategie neu ausrichten, eine Führungskultur gestalten oder eine Transformationsarchitektur entwickeln wollen – es beginnt mit einem Gespräch.",
-      cta: "Kontakt aufnehmen →"
+      cta: "Gespräch starten →"
     }
   }
 };

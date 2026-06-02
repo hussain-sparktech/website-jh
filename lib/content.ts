@@ -218,9 +218,9 @@ const de: Content = {
     nav: {
       home: "Start",
       services: "Leistungen",
-      approach: "Ansatz",
+      approach: "Erfolgsansatz",
       about: "Über mich",
-      insights: "Research & Insights",
+      insights: "Forschung & Erkenntnisse",
       contact: "Kontakt"
     },
     footer: {
@@ -252,7 +252,7 @@ const de: Content = {
       lead: "Platzhaltertext für Mission, Profil, Qualifikationen, Geschichte, Werte und Netzwerk."
     },
     insights: {
-      eyebrow: "Research & Insights",
+      eyebrow: "Forschung & Erkenntnisse",
       title: "Impulse für Leadership, Lernen und Transformation.",
       lead: "Platzhaltertext für Publikationen, Forschungsthemen und Perspektiven."
     },

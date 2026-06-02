@@ -23,11 +23,11 @@ const initialValues: FormValues = {
   privacy: false
 };
 
-export function PageHero({ headline, body }: ContactContent["hero"]) {
+export function PageHero({ eyebrow, headline, body }: ContactContent["hero"]) {
   return (
     <section className="contact-hero">
       <div className="contact-hero-copy">
-        <p className="eyebrow">Contact · Kontakt</p>
+        <p className="eyebrow">{eyebrow}</p>
         <h1>{headline}</h1>
         <p>{body}</p>
       </div>
@@ -44,7 +44,7 @@ export function PageHero({ headline, body }: ContactContent["hero"]) {
 export function ContactDetailsCard({ details }: { details: ContactContent["details"] }) {
   return (
     <aside className="contact-details-card">
-      <p className="eyebrow">Direct Contact</p>
+      <p className="eyebrow">{details.labels.heading}</p>
       <h2>{details.name}</h2>
       <div className="contact-detail-list">
         <div>
@@ -312,7 +312,7 @@ export function ContactPanel({ content }: { content: ContactContent }) {
       <div className="contact-panel-grid">
         <ContactDetailsCard details={content.details} />
         <div className="contact-form-card">
-          <p className="eyebrow">Inquiry</p>
+          <p className="eyebrow">{content.form.labels.heading}</p>
           <ContactForm form={content.form} />
         </div>
       </div>

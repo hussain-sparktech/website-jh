@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { FormEvent, ReactNode } from "react";
-import type { ArchiveItemContent, ArchiveYearGroup, HighlightContent, ResearchContent, ResearchTopicContent } from "@/lib/researchContent";
+import type { ArchiveItemContent, ArchiveYearGroup, HighlightContent, ResearchContent } from "@/lib/researchContent";
 import type { Language } from "@/lib/i18n";
 
 function applyArchiveSearch(input: HTMLInputElement) {
@@ -15,30 +15,20 @@ function applyArchiveSearch(input: HTMLInputElement) {
   const panels = archive.querySelectorAll<HTMLElement>(".archive-panel");
 
   panels.forEach((panel) => {
-    let visibleGroups = 0;
-    const groups = panel.querySelectorAll<HTMLElement>("[data-year-group]");
+    let visibleItems = 0;
+    const items = panel.querySelectorAll<HTMLElement>(".archive-item");
 
-    groups.forEach((group) => {
-      let visibleItems = 0;
-      const items = group.querySelectorAll<HTMLElement>(".archive-item");
-
-      items.forEach((item) => {
-        const matches = !query || (item.dataset.search ?? "").includes(query);
-        item.classList.toggle("is-hidden-by-search", !matches);
-        if (matches) {
-          visibleItems += 1;
-        }
-      });
-
-      group.classList.toggle("is-hidden-by-search", visibleItems === 0);
-      if (visibleItems > 0) {
-        visibleGroups += 1;
+    items.forEach((item) => {
+      const matches = !query || (item.dataset.search ?? "").includes(query);
+      item.classList.toggle("is-hidden-by-search", !matches);
+      if (matches) {
+        visibleItems += 1;
       }
     });
 
     const empty = panel.querySelector<HTMLElement>(".archive-empty");
     if (empty) {
-      empty.classList.toggle("is-hidden-by-search", visibleGroups > 0);
+      empty.classList.toggle("is-hidden-by-search", visibleItems > 0);
     }
   });
 }
@@ -51,11 +41,11 @@ export function CTAButton({ href, children }: { href: string; children: ReactNod
   );
 }
 
-export function ResearchHero({ headline, body }: ResearchContent["intro"]) {
+export function ResearchHero({ eyebrow, headline, body }: ResearchContent["intro"]) {
   return (
     <section className="research-hero">
       <div className="research-hero-copy">
-        <p className="eyebrow">Research · Insights</p>
+        <p className="eyebrow">{eyebrow}</p>
         <h1>{headline}</h1>
         <p>{body}</p>
       </div>
@@ -70,57 +60,42 @@ export function ResearchHero({ headline, body }: ResearchContent["intro"]) {
   );
 }
 
-export function TopicCard({ item }: { item: ResearchTopicContent }) {
+export function HighlightCard({ card, index, linkLabel }: { card: HighlightContent; index: number; linkLabel: string }) {
   return (
-    <article className="research-topic-card">
-      <h3>{item.title}</h3>
-      <p>{item.description}</p>
-    </article>
-  );
-}
-
-export function TopicsSection({ headline, intro, items }: ResearchContent["topics"]) {
-  return (
-    <section className="research-section topics-section">
-      <div className="research-heading">
-        <p className="eyebrow">01</p>
-        <div>
-          <h2>{headline}</h2>
-          <p>{intro}</p>
+    <article className={`highlight-card highlight-card-${index + 1}`}>
+      <div className="highlight-card-content">
+        <div className="highlight-meta">
+          <span>{card.year}</span>
+          <span>{card.type}</span>
         </div>
+        <h3>{card.title}</h3>
+        <p>{card.description}</p>
+        {card.url ? (
+          <Link href={card.url} target="_blank" rel="noreferrer">
+            {linkLabel}
+          </Link>
+        ) : null}
       </div>
-      <div className="research-topic-grid">
-        {items.map((item) => (
-          <TopicCard key={item.title} item={item} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export function HighlightCard({ card }: { card: HighlightContent }) {
-  return (
-    <article className="highlight-card">
-      <div className="highlight-meta">
-        <span>{card.year}</span>
-        <span>{card.type}</span>
-      </div>
-      <h3>{card.title}</h3>
-      <p>{card.description}</p>
     </article>
   );
 }
 
-export function SelectedHighlightsSection({ headline, cards }: ResearchContent["highlights"]) {
+export function SelectedHighlightsSection({
+  headline,
+  cards,
+  linkLabel
+}: ResearchContent["highlights"] & {
+  linkLabel: string;
+}) {
   return (
     <section className="research-section highlights-section">
       <div className="research-heading compact-heading">
-        <p className="eyebrow">02</p>
+        <p className="eyebrow">01</p>
         <h2>{headline}</h2>
       </div>
       <div className="highlight-grid">
-        {cards.map((card) => (
-          <HighlightCard key={`${card.year}-${card.title}`} card={card} />
+        {cards.map((card, index) => (
+          <HighlightCard key={`${card.year}-${card.title}`} card={card} index={index} linkLabel={linkLabel} />
         ))}
       </div>
     </section>
@@ -144,7 +119,7 @@ export function SearchInput({
   );
 }
 
-export function ArchiveTabs({
+export function ResearchTabs({
   labels
 }: {
   labels: ResearchContent["archive"]["tabs"];
@@ -169,7 +144,7 @@ export function ArchiveTabs({
   );
 }
 
-export function ArchiveItem({ item, year, openPublication }: { item: ArchiveItemContent; year: string; openPublication: string }) {
+export function ResearchListItem({ item, year, openPublication }: { item: ArchiveItemContent; year: string; openPublication: string }) {
   const searchableText = [year, item.authors, item.title, item.details].join(" ").toLowerCase();
 
   return (
@@ -189,33 +164,36 @@ export function ArchiveItem({ item, year, openPublication }: { item: ArchiveItem
   );
 }
 
-export function YearAccordion({
-  group,
-  defaultOpen,
-  itemSingular,
-  itemPlural,
-  openPublication
+function flattenArchive(groups: ArchiveYearGroup[]) {
+  return groups
+    .flatMap((group) => group.items.map((item) => ({ year: group.year, item })))
+    .sort((a, b) => Number(b.year) - Number(a.year));
+}
+
+export function ResearchList({
+  groups,
+  openPublication,
+  noResults
 }: {
-  group: ArchiveYearGroup;
-  defaultOpen: boolean;
-  itemSingular: string;
-  itemPlural: string;
+  groups: ArchiveYearGroup[];
   openPublication: string;
+  noResults: string;
 }) {
+  const items = flattenArchive(groups);
+
+  if (items.length === 0) {
+    return <p className="archive-empty">{noResults}</p>;
+  }
+
   return (
-    <details className="year-accordion" data-year-group open={defaultOpen}>
-      <summary>
-        <span>{group.year}</span>
-        <small>
-          {group.items.length} {group.items.length === 1 ? itemSingular : itemPlural}
-        </small>
-      </summary>
-      <div className="year-items">
-        {group.items.map((item) => (
-          <ArchiveItem key={`${group.year}-${item.title}`} item={item} year={group.year} openPublication={openPublication} />
-        ))}
-      </div>
-    </details>
+    <div className="archive-list">
+      {items.map(({ item, year }) => (
+        <ResearchListItem key={`${year}-${item.title}-${item.details}`} item={item} year={year} openPublication={openPublication} />
+      ))}
+      <p className="archive-empty is-hidden-by-search">
+        {noResults}
+      </p>
+    </div>
   );
 }
 
@@ -228,34 +206,10 @@ export function ResearchArchive({
   publications: ArchiveYearGroup[];
   presentations: ArchiveYearGroup[];
 }) {
-  function renderYearGroups(groups: ArchiveYearGroup[], panel: string) {
-    if (groups.length === 0) {
-      return <p className="archive-empty">{content.noResults}</p>;
-    }
-
-    return (
-      <>
-        {groups.map((group, index) => (
-          <YearAccordion
-            key={`${panel}-${group.year}`}
-            group={group}
-            defaultOpen={index === 0}
-            itemSingular={content.itemSingular}
-            itemPlural={content.itemPlural}
-            openPublication={content.openPublication}
-          />
-        ))}
-        <p className="archive-empty is-hidden-by-search">
-          {content.noResults}
-        </p>
-      </>
-    );
-  }
-
   return (
     <section className="research-section archive-section">
       <div className="research-heading archive-heading">
-        <p className="eyebrow">03</p>
+        <p className="eyebrow">02</p>
         <div>
           <h2>{content.headline}</h2>
           <p>{content.body}</p>
@@ -265,15 +219,15 @@ export function ResearchArchive({
         <input className="archive-tab-input" type="radio" name="research-archive-tab" id="archive-tab-publications" defaultChecked />
         <input className="archive-tab-input" type="radio" name="research-archive-tab" id="archive-tab-presentations" />
         <div className="archive-controls">
-          <ArchiveTabs labels={content.tabs} />
+          <ResearchTabs labels={content.tabs} />
           <SearchInput placeholder={content.searchPlaceholder} />
         </div>
         <div className="archive-panels">
-          <div className="archive-years archive-panel publications-panel" id="archive-panel" role="tabpanel">
-            {renderYearGroups(publications, "publications")}
+          <div className="archive-panel publications-panel" id="archive-panel" role="tabpanel">
+            <ResearchList groups={publications} openPublication={content.openPublication} noResults={content.noResults} />
           </div>
-          <div className="archive-years archive-panel presentations-panel" role="tabpanel">
-            {renderYearGroups(presentations, "presentations")}
+          <div className="archive-panel presentations-panel" role="tabpanel">
+            <ResearchList groups={presentations} openPublication={content.openPublication} noResults={content.noResults} />
           </div>
         </div>
         <script
@@ -285,19 +239,14 @@ export function ResearchArchive({
                   if (!archive) return;
                   var query = input.value.trim().toLowerCase();
                   archive.querySelectorAll(".archive-panel").forEach(function (panel) {
-                    var visibleGroups = 0;
-                    panel.querySelectorAll("[data-year-group]").forEach(function (group) {
-                      var visibleItems = 0;
-                      group.querySelectorAll(".archive-item").forEach(function (item) {
-                        var matches = !query || (item.getAttribute("data-search") || "").indexOf(query) !== -1;
-                        item.classList.toggle("is-hidden-by-search", !matches);
-                        if (matches) visibleItems += 1;
-                      });
-                      group.classList.toggle("is-hidden-by-search", visibleItems === 0);
-                      if (visibleItems > 0) visibleGroups += 1;
+                    var visibleItems = 0;
+                    panel.querySelectorAll(".archive-item").forEach(function (item) {
+                      var matches = !query || (item.getAttribute("data-search") || "").indexOf(query) !== -1;
+                      item.classList.toggle("is-hidden-by-search", !matches);
+                      if (matches) visibleItems += 1;
                     });
                     var empty = panel.querySelector(".archive-empty");
-                    if (empty) empty.classList.toggle("is-hidden-by-search", visibleGroups > 0);
+                    if (empty) empty.classList.toggle("is-hidden-by-search", visibleItems > 0);
                   });
                 }
                 if (!window.__researchArchiveSearchBound) {

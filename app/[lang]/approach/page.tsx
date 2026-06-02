@@ -16,7 +16,7 @@ export default function ApproachPage({ params }: { params: { lang: Language } })
     <>
       <PageHero {...t.philosophy} />
       <EditorialSection label={t.method.label} headline={t.method.headline} body={t.method.body}>
-        <ThreeCMethodDiagram nodes={t.method.nodes} />
+        <ThreeCMethodDiagram method={t.method} />
       </EditorialSection>
       <ProcessTimeline {...t.process} />
       <FoundationsSection {...t.foundations} />

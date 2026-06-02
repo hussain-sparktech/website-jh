@@ -2,6 +2,7 @@ import type { Language } from "./i18n";
 
 export type ContactContent = {
   hero: {
+    eyebrow: string;
     headline: string;
     body: string;
   };
@@ -11,6 +12,7 @@ export type ContactContent = {
     email: string;
     phone: string;
     labels: {
+      heading: string;
       address: string;
       email: string;
       phone: string;
@@ -25,6 +27,7 @@ export type ContactContent = {
       message: string;
       privacy: string;
       submit: string;
+      heading: string;
     };
     topics: string[];
     success: string;
@@ -43,6 +46,7 @@ export type ContactContent = {
 export const contactContent: Record<Language, ContactContent> = {
   en: {
     hero: {
+      eyebrow: "Contact",
       headline: "Let's talk about your transformation journey.",
       body:
         "Whether you are rethinking your HR strategy, designing a leadership culture, or building a transformation architecture — it always begins with a conversation."
@@ -53,6 +57,7 @@ export const contactContent: Record<Language, ContactContent> = {
       email: "hasanbegovic.jasmina@outlook.com",
       phone: "+49-174-3116355",
       labels: {
+        heading: "Direct Contact",
         address: "Address",
         email: "Email",
         phone: "Phone"
@@ -66,7 +71,8 @@ export const contactContent: Record<Language, ContactContent> = {
         topic: "Topic",
         message: "Message",
         privacy: "I agree to the privacy policy.",
-        submit: "Send message →"
+        submit: "Send message →",
+        heading: "Inquiry"
       },
       topics: ["Consulting", "Coaching", "Co-Design", "Other"],
       success: "Thank you. Your message has been prepared successfully.",
@@ -83,6 +89,7 @@ export const contactContent: Record<Language, ContactContent> = {
   },
   de: {
     hero: {
+      eyebrow: "Kontakt",
       headline: "Lassen Sie uns über Ihre Transformationsreise sprechen.",
       body:
         "Ob Sie Ihre HR-Strategie neu ausrichten, eine Führungskultur gestalten oder eine Transformationsarchitektur aufbauen – es beginnt immer mit einem Gespräch."
@@ -93,6 +100,7 @@ export const contactContent: Record<Language, ContactContent> = {
       email: "hasanbegovic.jasmina@outlook.com",
       phone: "+49-174-3116355",
       labels: {
+        heading: "Direkter Kontakt",
         address: "Adresse",
         email: "E-Mail",
         phone: "Telefon"
@@ -106,7 +114,8 @@ export const contactContent: Record<Language, ContactContent> = {
         topic: "Thema",
         message: "Nachricht",
         privacy: "Ich stimme der Datenschutzerklärung zu.",
-        submit: "Nachricht senden →"
+        submit: "Nachricht senden →",
+        heading: "Anfrage"
       },
       topics: ["Consulting", "Coaching", "Co-Design", "Sonstiges"],
       success: "Vielen Dank. Ihre Nachricht wurde erfolgreich vorbereitet.",

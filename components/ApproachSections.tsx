@@ -61,17 +61,31 @@ export function EditorialSection({
   );
 }
 
-export function ThreeCMethodDiagram({
-  nodes
-}: {
-  nodes: ApproachContent["method"]["nodes"];
-}) {
+export function ThreeCMethodDiagram({ method }: { method: ApproachContent["method"] }) {
+  const nodes = [method.nodes.consulting, method.nodes.coaching, method.nodes.coDesign];
+
   return (
-    <div className="three-c-diagram" aria-label={`${nodes.consulting}, ${nodes.coaching}, ${nodes.coDesign}`}>
-      <div className="venn-circle consulting">{nodes.consulting}</div>
-      <div className="venn-circle coaching">{nodes.coaching}</div>
-      <div className="venn-circle codesign">{nodes.coDesign}</div>
-      <div className="venn-overlap">{nodes.overlap}</div>
+    <div className="three-c-diagram" aria-label={`${nodes.join(", ")}. ${method.reflection}`}>
+      <div className="method-reflection">{method.reflection}</div>
+      <div className="method-core">
+        {nodes.map((node) => (
+          <span key={node}>{node}</span>
+        ))}
+        <strong>{method.nodes.overlap}</strong>
+      </div>
+      <div className="method-layer phase-layer">
+        {method.phases.map((phase, index) => (
+          <span key={phase}>
+            <small>{String(index + 1).padStart(2, "0")}</small>
+            {phase}
+          </span>
+        ))}
+      </div>
+      <div className="method-layer cultural-layer">
+        {method.culturalElements.map((element) => (
+          <span key={element}>{element}</span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -88,8 +102,7 @@ export function ProcessTimeline({
       <div className="process-timeline">
         {steps.map((step, index) => (
           <article className="process-step" key={step.title}>
-            <span className="step-marker">{String(index + 1).padStart(2, "0")}</span>
-            <p className="eyebrow">{step.label}</p>
+            <span className="step-marker">{step.label || String(index + 1).padStart(2, "0")}</span>
             <h3>{step.title}</h3>
             <p>{step.body}</p>
           </article>
@@ -101,16 +114,13 @@ export function ProcessTimeline({
 
 export function FoundationCard({
   title,
-  body,
-  index
+  body
 }: {
   title: string;
   body: string;
-  index: number;
 }) {
   return (
     <article className="foundation-card">
-      <span className="foundation-marker">{String(index + 1).padStart(2, "0")}</span>
       <h3>{title}</h3>
       <p>{body}</p>
     </article>
@@ -131,6 +141,7 @@ export function FoundationsSection({
   label,
   headline,
   blocks,
+  note,
   paragraph,
   concepts
 }: ApproachContent["foundations"]) {
@@ -142,12 +153,15 @@ export function FoundationsSection({
           <h2>{headline}</h2>
         </div>
         <div className="foundation-grid">
-          {blocks.map((block, index) => (
-            <FoundationCard key={block.title} {...block} index={index} />
+          {blocks.map((block) => (
+            <FoundationCard key={block.title} {...block} />
           ))}
         </div>
         <div className="foundation-note">
-          <p>{paragraph}</p>
+          <div>
+            {note ? <p className="foundation-collaboration-note">{note}</p> : null}
+            <p>{paragraph}</p>
+          </div>
           <ConceptGraphic concepts={concepts} />
         </div>
       </div>

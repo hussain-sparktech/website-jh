@@ -15,6 +15,9 @@ export type ApproachContent = {
       coDesign: string;
       overlap: string;
     };
+    culturalElements: string[];
+    phases: string[];
+    reflection: string;
   };
   process: {
     headline: string;
@@ -31,6 +34,7 @@ export type ApproachContent = {
       title: string;
       body: string;
     }>;
+    note?: string;
     paragraph: string;
     concepts: string[];
   };
@@ -52,34 +56,49 @@ export const approachContent: Record<Language, ApproachContent> = {
       label: "The 3C Difference",
       headline: "Not programs. Not interventions. Architectures.",
       body:
-        "Most consultants implement initiatives. I design the conditions for lasting change. The 3C approach — Consulting, Coaching, Co-Design — is not three separate services. It is one integrated method, applied at the intersection of strategy, culture, and human development.",
+        "The 3C approach — Consulting, Coaching, Co-Design — is one integrated method, applied at the intersection of strategy, culture, and human development.",
       nodes: {
         consulting: "Consulting",
         coaching: "Coaching",
         coDesign: "Co-Design",
         overlap: "Transformational Architecture"
-      }
+      },
+      culturalElements: [
+        "Empower employees",
+        "Enhance leaders",
+        "Create infrastructure",
+        "Co-design learning",
+        "Measure goals and results"
+      ],
+      phases: [
+        "Kickstart and initiate",
+        "Diagnosis",
+        "Create excitement and position",
+        "Build a winning strategy",
+        "Deliver transfer"
+      ],
+      reflection: "Reflection as a meta process"
     },
     process: {
       headline: "From insight to impact.",
       steps: [
         {
-          label: "Step 1",
+          label: "01",
           title: "Kickstart & Diagnose",
           body: "Understanding the system, its rhythms and dynamics."
         },
         {
-          label: "Step 2",
+          label: "02",
           title: "Create Excitement",
           body: "Co-designing the vision and mobilizing energy for change."
         },
         {
-          label: "Step 3",
+          label: "03",
           title: "Build a Winning Strategy",
           body: "Designing the transformation architecture — modular, tailored, measurable."
         },
         {
-          label: "Step 4",
+          label: "04",
           title: "Deliver Transformation at Scale",
           body: "Implementing, measuring impact, and sustaining the change."
         }
@@ -98,8 +117,8 @@ export const approachContent: Record<Language, ApproachContent> = {
           body: "Learning Design, Design Thinking, and Experience Design — where they create real impact."
         },
         {
-          title: "International Management & Impact",
-          body: "Linking knowledge, strategy, and execution — across cultures and industries."
+          title: "International & Interdisciplinary",
+          body: "Linking knowledge, strategy, and execution from different disciplines across cultures and industries."
         },
         {
           title: "20+ Years of Leadership Experience",
@@ -126,34 +145,49 @@ export const approachContent: Record<Language, ApproachContent> = {
       label: "Der 3C-Unterschied",
       headline: "Keine Programme. Keine Interventionen. Architekturen.",
       body:
-        "Die meisten Berater setzen Maßnahmen um. Ich gestalte die Bedingungen für nachhaltigen Wandel. Der 3C-Ansatz – Consulting, Coaching, Co-Design – ist nicht eine Auswahl aus drei Leistungen. Es ist eine integrierte Methode, die an der Schnittstelle von Strategie, Kultur und menschlicher Entwicklung wirkt.",
+        "Der 3C-Ansatz – Consulting, Coaching, Co-Design – ist eine integrierte Methode, die an der Schnittstelle von Strategie, Kultur und menschlicher Entwicklung wirkt.",
       nodes: {
         consulting: "Consulting",
         coaching: "Coaching",
         coDesign: "Co-Design",
-        overlap: "Transformationsarchitektur"
-      }
+        overlap: "Transformational Architecture"
+      },
+      culturalElements: [
+        "Empower employees",
+        "Enhance leaders",
+        "Create infrastructure",
+        "Co-design learning",
+        "Measure goals and results"
+      ],
+      phases: [
+        "Kickstart and initiate",
+        "Diagnosis",
+        "Create excitement and position",
+        "Build a winning strategy",
+        "Deliver transfer"
+      ],
+      reflection: "Reflection as a meta process"
     },
     process: {
       headline: "Von der Erkenntnis zur Wirkung.",
       steps: [
         {
-          label: "Schritt 1",
-          title: "Kickstart & Diagnose",
+          label: "01",
+          title: "Kickstart & Initiierung",
           body: "Das System, seine Rhythmen und Dynamiken verstehen."
         },
         {
-          label: "Schritt 2",
+          label: "02",
           title: "Aufbruchsstimmung erzeugen",
           body: "Vision gemeinsam gestalten und Energie für Wandel mobilisieren."
         },
         {
-          label: "Schritt 3",
+          label: "03",
           title: "Gewinnende Strategie entwickeln",
-          body: "Transformationsarchitektur gestalten – modular, maßgeschneidert, messbar."
+          body: "Transformationsarchitektur für die Strategie gestalten – modular, maßgeschneidert, messbar."
         },
         {
-          label: "Schritt 4",
+          label: "04",
           title: "Transformation im System verankern",
           body: "Umsetzung, Wirkungsmessung und nachhaltige Veränderung."
         }
@@ -172,14 +206,16 @@ export const approachContent: Record<Language, ApproachContent> = {
           body: "Learning Design, Design Thinking und Experience Design – dort, wo sie Wirkung entfalten."
         },
         {
-          title: "Internationales Management & Impact",
-          body: "Verknüpfung von Wissen, Strategie und Umsetzungskraft – über Kulturen und Branchen hinweg."
+          title: "International & Interdisciplinary",
+          body: "Verknüpfung von Wissen, Strategie und Umsetzungskraft aus unterschiedlichen Disziplinen über Kulturen und Branchen hinweg."
         },
         {
           title: "20+ Jahre Führungserfahrung",
           body: "Langjährige Praxis als HR-Führungskraft auf Top-Level in Strategie, Organisation und Transformation im DACH-Raum."
         }
       ],
+      note:
+        "Internationale Kooperationspartner aus unterschiedlichsten Disziplinen, Sektoren, Kulturen und Ländern.",
       paragraph:
         "Unser methodisches Fundament verbindet Design Thinking mit Erkenntnissen aus Systemtheorie, Lernforschung und Organisationsentwicklung. Lösungen entstehen iterativ und partizipativ – stets verankert in der Realität von Führungskräften und Teams. Interventionen zur Selbstregulierung schaffen dabei die Voraussetzung für nachhaltiges Wachstum.",
       concepts: ["Design Thinking", "Systemtheorie", "Verhaltensänderung durch Lernen"]

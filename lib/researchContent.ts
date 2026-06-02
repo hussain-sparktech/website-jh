@@ -12,27 +12,19 @@ export type ArchiveYearGroup = {
   items: ArchiveItemContent[];
 };
 
-export type ResearchTopicContent = {
-  title: string;
-  description: string;
-};
-
 export type HighlightContent = {
   year: string;
   type: string;
   title: string;
   description: string;
+  url?: string;
 };
 
 export type ResearchContent = {
   intro: {
+    eyebrow: string;
     headline: string;
     body: string;
-  };
-  topics: {
-    headline: string;
-    intro: string;
-    items: ResearchTopicContent[];
   };
   highlights: {
     headline: string;
@@ -47,8 +39,6 @@ export type ResearchContent = {
     };
     searchPlaceholder: string;
     openPublication: string;
-    itemSingular: string;
-    itemPlural: string;
     noResults: string;
   };
   closing: {
@@ -61,35 +51,10 @@ export type ResearchContent = {
 export const researchContent: Record<Language, ResearchContent> = {
   en: {
     intro: {
+      eyebrow: "Research & Insights",
       headline: "Research & Insights",
       body:
-        "Our work builds on 20+ years of research and practice in leadership, learning, and transformation. Explore selected publications, articles, presentations, and speeches."
-    },
-    topics: {
-      headline: "Research themes",
-      intro: "The work connects leadership, learning, systems thinking, and organizational transformation.",
-      items: [
-        {
-          title: "Design-based Research",
-          description: "Applied inquiry that turns complex organizational questions into tested learning designs."
-        },
-        {
-          title: "Sustainable Behaviour Change",
-          description: "Research and practice focused on lasting shifts in habits, routines, and leadership behavior."
-        },
-        {
-          title: "Systems Theory",
-          description: "A systemic lens on organizations, feedback loops, culture, and transformation dynamics."
-        },
-        {
-          title: "Leadership & Learning Culture",
-          description: "Work on how leaders enable development, transfer, and learning-oriented environments."
-        },
-        {
-          title: "Interdisciplinary Approaches",
-          description: "Perspectives from pedagogy, psychology, HR, learning science, and organizational development."
-        }
-      ]
+        "My work builds on 20+ years of interaction between research and practice in leadership, learning, and transformation. Explore selected publications, articles, and presentations."
     },
     highlights: {
       headline: "Selected highlights",
@@ -98,7 +63,9 @@ export const researchContent: Record<Language, ResearchContent> = {
           year: "2023",
           type: "Publication",
           title: "Omnichannel-Excellence in Organisationen durch Employee Experience",
-          description: "Published in the online magazine Edge by Diva-e."
+          description: "Published in the online magazine Edge by Diva-e.",
+          url:
+            "https://www.diva-e.com/edge/de/voices/entwicklung-und-foerderung-von-omnichannel-excellence-in-organisationen-durch-employee-experience/"
         },
         {
           year: "2025",
@@ -116,15 +83,13 @@ export const researchContent: Record<Language, ResearchContent> = {
     },
     archive: {
       headline: "Publications, presentations and speeches",
-      body: "Browse selected publications, articles, presentations, and speeches grouped by year.",
+      body: "Browse selected publications, articles, presentations, and speeches.",
       tabs: {
         publications: "Publications",
         presentations: "Presentations and speeches"
       },
-      searchPlaceholder: "Search by title, year, or topic...",
+      searchPlaceholder: "Search by title, year, or source...",
       openPublication: "Open publication →",
-      itemSingular: "item",
-      itemPlural: "items",
       noResults: "No items match your search."
     },
     closing: {
@@ -136,35 +101,10 @@ export const researchContent: Record<Language, ResearchContent> = {
   },
   de: {
     intro: {
-      headline: "Forschung & Einblicke",
+      eyebrow: "Forschung & Erkenntnisse",
+      headline: "Forschung & Erkenntnisse",
       body:
-        "Unsere Arbeit basiert auf über 20 Jahren Forschung und Praxis in Führung, Lernen und Transformation. Entdecken Sie ausgewählte Publikationen, Artikel, Präsentationen und Vorträge."
-    },
-    topics: {
-      headline: "Forschungsthemen",
-      intro: "Die Arbeit verbindet Führung, Lernen, systemisches Denken und organisationale Transformation.",
-      items: [
-        {
-          title: "Design-based Research",
-          description: "Anwendungsorientierte Forschung, die komplexe Organisationsfragen in erprobte Lerndesigns übersetzt."
-        },
-        {
-          title: "Nachhaltige Verhaltensänderung",
-          description: "Forschung und Praxis zu dauerhaften Veränderungen von Routinen, Gewohnheiten und Führungsverhalten."
-        },
-        {
-          title: "Systemtheorie",
-          description: "Ein systemischer Blick auf Organisationen, Rückkopplungen, Kultur und Transformationsdynamiken."
-        },
-        {
-          title: "Führung & Lernkultur",
-          description: "Arbeiten dazu, wie Führung Entwicklung, Transfer und lernförderliche Umfelder ermöglicht."
-        },
-        {
-          title: "Interdisziplinäre Ansätze",
-          description: "Perspektiven aus Pädagogik, Psychologie, HR, Lernforschung und Organisationsentwicklung."
-        }
-      ]
+        "Meine Arbeit basiert auf über 20 Jahren der Verbindung von Forschung und Praxis in den Bereichen Führung, Lernen und Transformation. Ausgewählte Publikationen, Artikel und Vorträge."
     },
     highlights: {
       headline: "Ausgewählte Highlights",
@@ -173,7 +113,9 @@ export const researchContent: Record<Language, ResearchContent> = {
           year: "2023",
           type: "Publikation",
           title: "Omnichannel-Excellence in Organisationen durch Employee Experience",
-          description: "Veröffentlicht im Online-Magazin Edge von Diva-e."
+          description: "Veröffentlicht im Online-Magazin Edge von Diva-e.",
+          url:
+            "https://www.diva-e.com/edge/de/voices/entwicklung-und-foerderung-von-omnichannel-excellence-in-organisationen-durch-employee-experience/"
         },
         {
           year: "2025",
@@ -191,15 +133,13 @@ export const researchContent: Record<Language, ResearchContent> = {
     },
     archive: {
       headline: "Publikationen, Präsentationen und Vorträge",
-      body: "Durchsuchen Sie ausgewählte Publikationen, Artikel, Präsentationen und Vorträge, gruppiert nach Jahr.",
+      body: "Durchsuchen Sie ausgewählte Publikationen, Artikel, Präsentationen und Vorträge.",
       tabs: {
         publications: "Publikationen",
         presentations: "Präsentationen und Vorträge"
       },
-      searchPlaceholder: "Nach Titel, Jahr oder Thema suchen...",
+      searchPlaceholder: "Nach Titel, Jahr oder Quelle suchen...",
       openPublication: "Publikation öffnen →",
-      itemSingular: "Eintrag",
-      itemPlural: "Einträge",
       noResults: "Keine Einträge entsprechen Ihrer Suche."
     },
     closing: {

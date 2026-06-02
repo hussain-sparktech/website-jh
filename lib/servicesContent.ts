@@ -36,7 +36,7 @@ export const servicesContent: Record<Language, ServicesContent> = {
     intro: {
       headline: "Where strategy meets humanity.",
       subheadline: "Services for Transformational Leadership.",
-      body: "I help organizations transform from within — aligning strategy, people, and culture through consulting, coaching, and co-design. Each discipline offers a distinct perspective; together they create a living architecture of transformation.",
+      body: "3C Transforming Leadership helps organizations transform from within — aligning strategy, people, and culture through consulting, coaching, and co-design. Each discipline offers a distinct perspective; together they create a living architecture of transformation.",
       quote:
         "With analytical acuity, creative innovative strength and interdisciplinary thinking, solutions are created that are strategically sound, culturally compatible and sustainably effective."
     },
@@ -46,7 +46,7 @@ export const servicesContent: Record<Language, ServicesContent> = {
         title: "Consulting",
         claim: "Designing architectures for organizational transformation.",
         description:
-          "I guide leaders and HR teams through complex transformation processes — from strategic design to cultural embodiment. My consulting practice connects systemic diagnosis with pragmatic implementation.",
+          "We guide leaders and HR teams through complex transformation processes — from strategic design to cultural embodiment. Our consulting practice connects systemic diagnosis with pragmatic implementation.",
         listLabel: "Services",
         items: [
           "Transformational Architectures & Culture Design",
@@ -66,7 +66,7 @@ export const servicesContent: Record<Language, ServicesContent> = {
         title: "Coaching",
         claim: "Empowering leaders in complexity.",
         description:
-          "As a certified coach, I support executives and teams to navigate uncertainty, reconnect with purpose, and expand their leadership presence. From insight to action — practical coaching for real-world results.",
+          "Through certified coaching expertise, 3C Transforming Leadership supports executives and teams in navigating uncertainty, reconnecting with purpose, and expanding their leadership presence. From insight to action — practical coaching for real-world results.",
         listLabel: "Offerings",
         items: [
           "Executive & Leadership Coaching (1:1)",
@@ -90,7 +90,7 @@ export const servicesContent: Record<Language, ServicesContent> = {
         title: "Co-Design",
         claim: "Creating impact through collaboration.",
         description:
-          "Co-Design brings people, perspectives, and systems into dialogue. I design and facilitate participatory learning processes that enable organizations to choreograph meaningful, lasting change — no top-down mandates, just genuine co-creation.",
+          "Co-Design brings people, perspectives, and systems into dialogue. We design and facilitate participatory learning processes that enable organizations to choreograph meaningful, lasting change — no top-down mandates, just genuine co-creation.",
         listLabel: "Formats",
         items: [
           "Tailored Leadership Programs",
@@ -124,7 +124,7 @@ export const servicesContent: Record<Language, ServicesContent> = {
       headline: "Wo Strategie auf Menschlichkeit trifft.",
       subheadline: "Leistungen für transformationale Führung.",
       body:
-        "Ich unterstütze Organisationen dabei, sich von innen heraus zu transformieren – durch die Verbindung von Strategie, Menschen und Kultur. Jede Disziplin bietet eine eigene Perspektive; gemeinsam bilden sie eine lebendige Architektur der Transformation.",
+        "3C Transforming Leadership unterstützt Organisationen dabei, sich von innen heraus zu transformieren – durch die Verbindung von Strategie, Menschen und Kultur. Jede Disziplin bietet eine eigene Perspektive; gemeinsam bilden sie eine lebendige Architektur der Transformation.",
       quote:
         "Mit analytischer Schärfe, kreativer Innovationskraft und interdisziplinärem Denken entstehen Lösungen, die strategisch fundiert, kulturell anschlussfähig und nachhaltig wirksam sind."
     },
@@ -132,9 +132,9 @@ export const servicesContent: Record<Language, ServicesContent> = {
       {
         eyebrow: "01 · Consulting",
         title: "Consulting",
-        claim: "Architekturen für die Unternehmenstransformation entwerfen.",
+        claim: "Transformation strategisch gestalten.",
         description:
-          "Ich begleite Führungskräfte und HR-Teams durch komplexe Transformationsprozesse – von der strategischen Gestaltung bis zur kulturellen Verankerung. Meine Beratungspraxis verbindet systemische Diagnose mit pragmatischer Umsetzung.",
+          "Wir begleiten Führungskräfte und HR-Teams durch komplexe Transformationsprozesse – von der strategischen Gestaltung bis zur kulturellen Verankerung. Unsere Beratungspraxis verbindet systemische Diagnose mit pragmatischer Umsetzung.",
         listLabel: "Leistungen",
         items: [
           "Transformationsarchitekturen & Kulturgestaltung",
@@ -152,9 +152,9 @@ export const servicesContent: Record<Language, ServicesContent> = {
       {
         eyebrow: "02 · Coaching",
         title: "Coaching",
-        claim: "Führungskräfte in Komplexität stärken.",
+        claim: "Führung in Komplexität stärken.",
         description:
-          "Als zertifizierter Coach unterstütze ich Führungskräfte und Teams dabei, Unsicherheit zu navigieren, den eigenen Purpose neu zu entdecken und Führungspräsenz auszubauen. Von der Erkenntnis zur Handlung – praxisorientiertes Coaching für echte Ergebnisse.",
+          "Durch zertifizierte Coaching-Expertise unterstützt 3C Transforming Leadership Führungskräfte und Teams dabei, Unsicherheit zu navigieren, den eigenen Purpose neu zu entdecken und Führungspräsenz auszubauen. Von der Erkenntnis zur Handlung – praxisorientiertes Coaching für echte Ergebnisse.",
         listLabel: "Angebote",
         items: [
           "Executive & Leadership Coaching (1:1)",
@@ -176,9 +176,9 @@ export const servicesContent: Record<Language, ServicesContent> = {
       {
         eyebrow: "03 · Co-Design",
         title: "Co-Design",
-        claim: "Wirkung durch gemeinsame Gestaltung.",
+        claim: "Wirkung gemeinsam gestalten.",
         description:
-          "Co-Design bringt Menschen, Perspektiven und Systeme in Dialog. Ich gestalte und begleite partizipative Lernprozesse, die Organisationen befähigen, bedeutsamen Wandel zu choreografieren – keine Top-down-Vorgaben, sondern echte Mitgestaltung.",
+          "Co-Design bringt Menschen, Perspektiven und Systeme in Dialog. Wir gestalten und begleiten partizipative Lernprozesse, die Organisationen befähigen, bedeutsamen Wandel zu choreografieren – keine Top-down-Vorgaben, sondern echte Mitgestaltung.",
         listLabel: "Formate",
         items: [
           "Maßgeschneiderte Leadership-Programme",

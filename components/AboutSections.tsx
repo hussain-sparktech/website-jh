@@ -21,11 +21,11 @@ function PortraitPlaceholder() {
   );
 }
 
-export function PageHero({ headline, body }: AboutContent["mission"]) {
+export function PageHero({ eyebrow, headline, body }: AboutContent["mission"]) {
   return (
     <section className="about-hero">
       <div className="about-hero-copy">
-        <p className="eyebrow">About · Über mich</p>
+        <p className="eyebrow">{eyebrow}</p>
         <h1>{headline}</h1>
         <div>
           {body.map((paragraph) => (

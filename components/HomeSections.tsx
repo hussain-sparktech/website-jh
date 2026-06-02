@@ -118,9 +118,8 @@ export function HowIWork({
           <p className="work-copy">{body}</p>
         </div>
         <div className="principle-grid">
-          {principles.map((principle, index) => (
+          {principles.map((principle) => (
             <article className="principle-card" key={principle}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{principle}</h3>
             </article>
           ))}
