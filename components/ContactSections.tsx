@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import type { ContactContent } from "@/lib/contactContent";
+import type { Language } from "@/lib/i18n";
 
 type FormValues = {
   name: string;
@@ -23,12 +24,17 @@ const initialValues: FormValues = {
   privacy: false
 };
 
-export function PageHero({ eyebrow, headline, body }: ContactContent["hero"]) {
+export function PageHero({
+  eyebrow,
+  headline,
+  body,
+  lang
+}: ContactContent["hero"] & { lang: Language }) {
   return (
     <section className="contact-hero">
       <div className="contact-hero-copy">
         <p className="eyebrow">{eyebrow}</p>
-        <h1>{headline}</h1>
+        <h1 lang={lang}>{headline}</h1>
         <p>{body}</p>
       </div>
       <div className="contact-hero-art" aria-hidden="true">

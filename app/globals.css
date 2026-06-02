@@ -2707,8 +2707,10 @@ h3 {
 }
 
 .contact-hero h1 {
-  max-width: 920px;
+  max-width: min(920px, 100%);
   font-size: clamp(3.2rem, 7vw, 7rem);
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .contact-hero-copy > p:not(.eyebrow) {
@@ -3481,7 +3483,8 @@ h3 {
   }
 
   .contact-hero h1 {
-    font-size: clamp(2.25rem, 12vw, 4rem);
+    font-size: clamp(2rem, 9.5vw, 3.5rem);
+    line-height: 1.08;
   }
 
   .contact-page-form {
@@ -3508,9 +3511,13 @@ h3 {
   .home-hero h1,
   .services-hero h1,
   .approach-hero h1,
-  .research-hero h1,
-  .contact-hero h1 {
+  .research-hero h1 {
     font-size: clamp(2.05rem, 10.5vw, 3rem);
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(1.75rem, 7.8vw, 2.65rem);
+    line-height: 1.12;
   }
 
   .about-hero h1 {
@@ -3566,8 +3573,12 @@ h3 {
   .services-hero h1,
   .approach-hero h1,
   .research-hero h1,
-  .contact-hero h1,
   .about-hero h1 {
     font-size: 2rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 1.65rem;
+    line-height: 1.14;
   }
 }

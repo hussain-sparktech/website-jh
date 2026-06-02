@@ -7,7 +7,7 @@ export default function ContactPage({ params }: { params: { lang: Language } }) 
 
   return (
     <>
-      <PageHero {...t.hero} />
+      <PageHero {...t.hero} lang={params.lang} />
       <ContactPanel content={t} />
       <ClosingNote note={t.note} />
     </>
