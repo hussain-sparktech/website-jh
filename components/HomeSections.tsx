@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { HeroVisual } from "@/components/HeroVisual";
 import type { HomeService } from "@/lib/homeContent";
 import type { Language } from "@/lib/i18n";
+import { siteImagery } from "@/lib/siteImagery";
 
 export function CTAButton({
   href,
@@ -50,7 +52,7 @@ export function HomeHero({
   language: Language;
 }) {
   return (
-    <section className="home-hero">
+    <section className="home-hero has-atmosphere atmosphere--aurora has-hero-panel">
       <div className="home-hero-copy">
         <p className="eyebrow">{content.eyebrow}</p>
         <h1>{content.headline}</h1>
@@ -62,14 +64,13 @@ export function HomeHero({
           </CTAButton>
         </div>
       </div>
-      <div className="home-hero-visual" aria-hidden="true">
-        <span className="lotus-ring ring-one" />
-        <span className="lotus-ring ring-two" />
-        <span className="lotus-ring ring-three" />
-        <span className="choreo-line choreo-one" />
-        <span className="choreo-line choreo-two" />
-        <span className="choreo-line choreo-three" />
-      </div>
+      <HeroVisual
+        src={siteImagery.aurora}
+        alt="Aurora light in the night sky — vision and transformation"
+        focus="48% 36%"
+        priority
+        className="home-hero-visual home-hero-visual-aurora"
+      />
     </section>
   );
 }
@@ -86,7 +87,7 @@ export function ValueProposition({
   quote: string;
 }) {
   return (
-    <section className="home-section value-proposition">
+    <section className="home-section value-proposition has-atmosphere atmosphere--form">
       <div className="value-grid">
         <SectionHeader label={label} title={headline} />
         <div className="value-body">
@@ -110,7 +111,7 @@ export function HowIWork({
   principles: string[];
 }) {
   return (
-    <section className="home-section how-work">
+    <section className="home-section how-work has-atmosphere atmosphere--flow">
       <div className="architecture-lines" aria-hidden="true" />
       <div className="work-grid">
         <div>
@@ -192,7 +193,7 @@ export function Credibility({
   stats: Array<{ value: string; label: string }>;
 }) {
   return (
-    <section className="home-section credibility-section">
+    <section className="home-section credibility-section has-atmosphere atmosphere--artomat">
       <div className="credibility-grid">
         <div>
           <SectionHeader title={headline} />
@@ -225,7 +226,7 @@ export function HomeClosingCta({
   language: Language;
 }) {
   return (
-    <section className="home-closing">
+    <section className="home-closing has-atmosphere atmosphere--rainbow">
       <div>
         <p className="eyebrow">3C Transforming Leadership</p>
         <h2>{headline}</h2>

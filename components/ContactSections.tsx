@@ -1,8 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { HeroVisual } from "@/components/HeroVisual";
 import type { ContactContent } from "@/lib/contactContent";
 import type { Language } from "@/lib/i18n";
+import { siteImagery } from "@/lib/siteImagery";
 
 type FormValues = {
   name: string;
@@ -31,18 +33,21 @@ export function PageHero({
   lang
 }: ContactContent["hero"] & { lang: Language }) {
   return (
-    <section className="contact-hero">
+    <section className="contact-hero has-atmosphere atmosphere--ground has-hero-panel">
       <div className="contact-hero-copy">
         <p className="eyebrow">{eyebrow}</p>
         <h1 lang={lang}>{headline}</h1>
         <p>{body}</p>
       </div>
-      <div className="contact-hero-art" aria-hidden="true">
+      <HeroVisual
+        src={siteImagery.grass}
+        alt="Succulent from above — organic growth and material presence"
+        focus="center"
+        className="contact-hero-art"
+      >
         <span className="contact-orbit contact-orbit-one" />
-        <span className="contact-orbit contact-orbit-two" />
         <span className="contact-path contact-path-one" />
-        <span className="contact-path contact-path-two" />
-      </div>
+      </HeroVisual>
     </section>
   );
 }

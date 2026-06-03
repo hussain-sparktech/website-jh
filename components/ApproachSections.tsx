@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { HeroVisual } from "@/components/HeroVisual";
 import type { ApproachContent } from "@/lib/approachContent";
 import type { Language } from "@/lib/i18n";
+import { siteImagery } from "@/lib/siteImagery";
 
 export function CTAButton({
   href,
@@ -19,19 +21,22 @@ export function CTAButton({
 
 export function PageHero({ headline, body }: ApproachContent["philosophy"]) {
   return (
-    <section className="approach-hero">
+    <section className="approach-hero has-atmosphere atmosphere--flow has-hero-panel">
       <div className="approach-hero-copy">
         <p className="eyebrow">3C Transforming Leadership</p>
         <h1>{headline}</h1>
         <p>{body}</p>
       </div>
-      <div className="approach-hero-art" aria-hidden="true">
+      <HeroVisual
+        src={siteImagery.waves}
+        alt="Flowing teal light — choreography and transformation in motion"
+        focus="center 52%"
+        className="approach-hero-art"
+      >
         <span className="rhythm-line rhythm-one" />
         <span className="rhythm-line rhythm-two" />
-        <span className="rhythm-line rhythm-three" />
         <span className="rhythm-orbit orbit-one" />
-        <span className="rhythm-orbit orbit-two" />
-      </div>
+      </HeroVisual>
     </section>
   );
 }
@@ -178,7 +183,7 @@ export function ClosingCTA({
   language: Language;
 }) {
   return (
-    <section className="approach-closing">
+    <section className="approach-closing has-atmosphere atmosphere--urban">
       <div>
         <p className="eyebrow">3C Transforming Leadership</p>
         <h2>{headline}</h2>

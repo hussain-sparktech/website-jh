@@ -1,23 +1,17 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AboutFigure } from "@/components/AboutMedia";
 import type { AboutContent } from "@/lib/aboutContent";
 import type { Language } from "@/lib/i18n";
+
+const PORTRAIT_PRIMARY = "/images/JasnimaHasnagbegovic-1.png";
+const PORTRAIT_SECONDARY = "/images/JasnimaHasnagbegovic-2.png";
 
 export function CTAButton({ href, children }: { href: string; children: ReactNode }) {
   return (
     <Link className="about-cta" href={href}>
       {children}
     </Link>
-  );
-}
-
-function PortraitPlaceholder() {
-  return (
-    <div className="portrait-placeholder" aria-label="Portrait placeholder">
-      <span className="portrait-flower">✦</span>
-      <span className="portrait-line portrait-line-one" />
-      <span className="portrait-line portrait-line-two" />
-    </div>
   );
 }
 
@@ -33,7 +27,13 @@ export function PageHero({ eyebrow, headline, body }: AboutContent["mission"]) {
           ))}
         </div>
       </div>
-      <PortraitPlaceholder />
+      <AboutFigure
+        src={PORTRAIT_PRIMARY}
+        alt="Dr. Jasmina Hasanbegović — professional portrait"
+        className="about-figure about-portrait-frame"
+        priority
+        sizes="(max-width: 900px) 100vw, 38vw"
+      />
     </section>
   );
 }
@@ -42,7 +42,12 @@ export function ProfileCard({ profile }: { profile: AboutContent["profile"] }) {
   return (
     <section className="about-section profile-section">
       <div className="profile-grid">
-        <PortraitPlaceholder />
+        <AboutFigure
+          src={PORTRAIT_SECONDARY}
+          alt="Dr. Jasmina Hasanbegović — portrait on black"
+          className="about-figure about-portrait-frame about-portrait-frame-dark"
+          sizes="(max-width: 900px) 100vw, 34vw"
+        />
         <div className="profile-copy">
           <p className="eyebrow">Profile</p>
           <h2>{profile.name}</h2>
@@ -107,7 +112,7 @@ export function AcademicBackgroundCards({ headline, items }: AboutContent["acade
 
 export function EditorialStorySection({ headline, body, quote }: AboutContent["story"]) {
   return (
-    <section className="about-section story-section">
+    <section className="about-section story-section has-atmosphere atmosphere--aurora">
       <div className="story-grid">
         <div>
           <p className="eyebrow">Story</p>
@@ -122,7 +127,7 @@ export function EditorialStorySection({ headline, body, quote }: AboutContent["s
 
 export function ValuesGrid({ headline, body, items }: AboutContent["values"]) {
   return (
-    <section className="about-section values-section">
+    <section className="about-section values-section has-atmosphere atmosphere--ink">
       <div className="values-heading">
         <p className="eyebrow">Values</p>
         <h2>{headline}</h2>
@@ -142,7 +147,7 @@ export function ValuesGrid({ headline, body, items }: AboutContent["values"]) {
 
 export function NetworkSection({ headline, body, stat, statLabel, tags }: AboutContent["network"]) {
   return (
-    <section className="about-section network-section">
+    <section className="about-section network-section has-atmosphere atmosphere--diagram">
       <div className="network-grid">
         <div>
           <p className="eyebrow">Network</p>
@@ -172,7 +177,7 @@ export function ClosingCTA({
   language: Language;
 }) {
   return (
-    <section className="about-closing">
+    <section className="about-closing has-atmosphere atmosphere--bloom">
       <div>
         <p className="eyebrow">3C Transforming Leadership</p>
         <h2>{headline}</h2>

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { HeroVisual } from "@/components/HeroVisual";
 import type { ServiceDetail } from "@/lib/servicesContent";
 import type { Language } from "@/lib/i18n";
+import { siteImagery } from "@/lib/siteImagery";
 
 export function CTAButton({
   href,
@@ -31,19 +33,22 @@ export function PageHero({
   quote: string;
 }) {
   return (
-    <section className="services-hero">
+    <section className="services-hero has-atmosphere atmosphere--flare has-hero-panel">
       <div className="services-hero-copy">
         <p className="eyebrow">{subheadline}</p>
         <h1>{headline}</h1>
         <p>{body}</p>
       </div>
       <blockquote>{quote}</blockquote>
-      <div className="services-hero-art" aria-hidden="true">
+      <HeroVisual
+        src={siteImagery.flare}
+        alt="Prismatic light — creative transformation of services"
+        focus="35% center"
+        className="services-hero-art"
+      >
         <span className="services-arc arc-one" />
-        <span className="services-arc arc-two" />
         <span className="services-path path-one" />
-        <span className="services-path path-two" />
-      </div>
+      </HeroVisual>
     </section>
   );
 }
@@ -113,7 +118,7 @@ export function ClosingCTA({
   language: Language;
 }) {
   return (
-    <section className="services-closing">
+    <section className="services-closing has-atmosphere atmosphere--magenta">
       <div>
         <p className="eyebrow">3C Transforming Leadership</p>
         <h2>{headline}</h2>

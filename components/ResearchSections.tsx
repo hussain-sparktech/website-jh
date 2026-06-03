@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import type { FormEvent, ReactNode } from "react";
+import { HeroVisual } from "@/components/HeroVisual";
 import type { ArchiveItemContent, ArchiveYearGroup, HighlightContent, ResearchContent } from "@/lib/researchContent";
 import type { Language } from "@/lib/i18n";
+import { siteImagery } from "@/lib/siteImagery";
 
 function applyArchiveSearch(input: HTMLInputElement) {
   const archive = input.closest<HTMLElement>(".archive-shell");
@@ -43,19 +45,20 @@ export function CTAButton({ href, children }: { href: string; children: ReactNod
 
 export function ResearchHero({ eyebrow, headline, body }: ResearchContent["intro"]) {
   return (
-    <section className="research-hero">
+    <section className="research-hero has-atmosphere atmosphere--iris has-hero-panel">
       <div className="research-hero-copy">
         <p className="eyebrow">{eyebrow}</p>
         <h1>{headline}</h1>
         <p>{body}</p>
       </div>
-      <div className="research-hero-art" aria-hidden="true">
-        <span className="paper-layer paper-one" />
-        <span className="paper-layer paper-two" />
-        <span className="paper-layer paper-three" />
+      <HeroVisual
+        src={siteImagery.eye}
+        alt="Close view of the eye — insight and perception"
+        focus="62% 40%"
+        className="research-hero-art"
+      >
         <span className="paper-axis axis-one" />
-        <span className="paper-axis axis-two" />
-      </div>
+      </HeroVisual>
     </section>
   );
 }
@@ -277,7 +280,7 @@ export function ClosingCTA({
   language: Language;
 }) {
   return (
-    <section className="research-closing">
+    <section className="research-closing has-atmosphere atmosphere--iris">
       <div>
         <p className="eyebrow">3C Transforming Leadership</p>
         <h2>{headline}</h2>
