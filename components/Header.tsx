@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
-import type { Language } from "@/lib/i18n";
 import { content, type PageKey } from "@/lib/content";
+import type { Language } from "@/lib/i18n";
 
 function MenuIcon() {
   return (
