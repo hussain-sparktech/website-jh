@@ -4,9 +4,9 @@ import type { CmsFieldDef, CmsPageId, FieldType } from "./types";
 import type { Language } from "@/lib/i18n";
 
 /** Not editable in admin — always taken from code (like header/footer). */
-const FIXED_CONTENT_KEYS = new Set(["cta", "primaryCta", "secondaryCta", "submit"]);
-
-const SKIP_KEYS = new Set(["accent", "url", ...FIXED_CONTENT_KEYS]);
+const FIXED_CONTENT_KEY_LIST = ["cta", "primaryCta", "secondaryCta", "submit"] as const;
+const FIXED_CONTENT_KEYS = new Set<string>(FIXED_CONTENT_KEY_LIST);
+const SKIP_KEYS = new Set<string>(["accent", "url", ...FIXED_CONTENT_KEY_LIST]);
 
 const MAX_DISCOVERY_DEPTH = 12;
 
