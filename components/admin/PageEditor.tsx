@@ -11,6 +11,7 @@ import {
 import { fetchPageDocument, savePageDocument } from "@/lib/cms/firestore";
 import type { CmsFieldDef, CmsPageDocument, CmsPageId } from "@/lib/cms/types";
 import type { Language } from "@/lib/i18n";
+import { PageImageUploads } from "@/components/admin/PageImageUploads";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 
 export function PageEditor({ pageId, pageLabel }: { pageId: CmsPageId; pageLabel: string }) {
@@ -147,6 +148,8 @@ export function PageEditor({ pageId, pageLabel }: { pageId: CmsPageId; pageLabel
 
       {error ? <p className="admin-error">{error}</p> : null}
       {status ? <p className="admin-success">{status}</p> : null}
+
+      <PageImageUploads pageId={pageId} />
 
       <div className="admin-field-grid">
         {fields.map((field) => (

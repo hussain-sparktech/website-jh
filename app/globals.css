@@ -4300,6 +4300,109 @@ h3 {
   align-items: center;
 }
 
+.admin-image-panel {
+  margin-bottom: 36px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.06), rgba(var(--navy-rgb), 0.03));
+}
+
+.admin-image-panel__header {
+  margin-bottom: 24px;
+}
+
+.admin-image-panel__header h2 {
+  margin: 6px 0 0;
+  color: var(--navy);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+}
+
+.admin-image-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.admin-image-grid--count-1 {
+  grid-template-columns: minmax(0, 280px);
+}
+
+.admin-image-grid--count-2 {
+  grid-template-columns: repeat(2, minmax(0, 280px));
+  max-width: 580px;
+}
+
+.admin-image-grid--count-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.admin-image-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(24, 32, 51, 0.1);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 12px 32px rgba(var(--navy-rgb), 0.06);
+}
+
+.admin-image-card__preview {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.admin-image-card__img {
+  object-fit: cover;
+}
+
+.admin-image-card__body {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+}
+
+.admin-image-card__file {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-image-card__file span {
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.admin-image-card__file input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px dashed rgba(24, 32, 51, 0.2);
+  border-radius: var(--radius);
+  background: rgba(var(--accent-rgb), 0.04);
+  color: var(--ink);
+  font-size: 0.84rem;
+}
+
+.admin-image-card__file input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(var(--accent-rgb), 0.16);
+  color: var(--navy);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.admin-image-card .admin-button {
+  width: 100%;
+}
+
+.admin-image-card .admin-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 .admin-field-grid {
   display: grid;
   gap: 18px;
@@ -4343,5 +4446,15 @@ h3 {
 
   .admin-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-image-grid--count-2,
+  .admin-image-grid--count-3 {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+
+  .admin-image-grid--count-1 {
+    grid-template-columns: minmax(0, 280px);
   }
 }
