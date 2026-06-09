@@ -2,22 +2,22 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import {
-  getGaMeasurementId,
-  subscribeToConsentUpdates,
-  syncAnalyticsWithConsent,
-  trackPageView
-} from "@/lib/analytics";
 import { isCategoryAllowed } from "@/lib/cookieConsent";
+import {
+  getGtmId,
+  subscribeToConsentUpdates,
+  syncGTMWithConsent,
+  trackPageView
+} from "@/lib/gtm";
 
-export function GoogleAnalytics() {
+export function GoogleTagManager() {
   const pathname = usePathname();
 
   useEffect(() => {
-    syncAnalyticsWithConsent();
+    syncGTMWithConsent();
 
     return subscribeToConsentUpdates(() => {
-      syncAnalyticsWithConsent();
+      syncGTMWithConsent();
 
       if (isCategoryAllowed("analytics")) {
         trackPageView(window.location.pathname);
@@ -26,7 +26,7 @@ export function GoogleAnalytics() {
   }, []);
 
   useEffect(() => {
-    if (!getGaMeasurementId() || !isCategoryAllowed("analytics")) {
+    if (!getGtmId() || !isCategoryAllowed("analytics")) {
       return;
     }
 

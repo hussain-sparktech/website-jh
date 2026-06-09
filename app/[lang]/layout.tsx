@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleTagManager } from "@/components/GoogleTagManager";
 import { Header } from "@/components/Header";
 import { isLanguage, type Language } from "@/lib/i18n";
 
@@ -29,7 +29,7 @@ export default function LanguageLayout({
       <main>{children}</main>
       <Footer language={language} />
       <CookieBanner language={language} />
-      <GoogleAnalytics />
+      <GoogleTagManager />
     </>
   );
 }
