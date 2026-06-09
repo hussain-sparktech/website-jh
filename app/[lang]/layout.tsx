@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { isLanguage, type Language } from "@/lib/i18n";
@@ -26,6 +27,7 @@ export default function LanguageLayout({
       <Header language={language} />
       <main>{children}</main>
       <Footer language={language} />
+      <CookieBanner language={language} />
     </>
   );
 }

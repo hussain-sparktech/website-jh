@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookieSettingsLink } from "@/components/CookieBanner";
 import type { Language } from "@/lib/i18n";
 import { content } from "@/lib/content";
 
@@ -15,6 +16,7 @@ export function Footer({ language }: { language: Language }) {
         <Link href={`/${language}/imprint`}>{footer.imprint}</Link>
         <Link href={`/${language}/privacy-policy`}>{footer.privacy}</Link>
         <Link href={`/${language}/cookie-policy`}>{footer.cookies}</Link>
+        <CookieSettingsLink language={language} />
       </nav>
     </footer>
   );
