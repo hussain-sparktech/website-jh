@@ -23,7 +23,7 @@ type PageContent = {
   lead: string;
 };
 
-type Content = {
+export type Content = {
   meta: {
     nav: Record<PageKey, string>;
     footer: {
