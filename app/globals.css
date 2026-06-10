@@ -130,35 +130,35 @@
 }
 
 .atmosphere--aurora {
-  --atmosphere-photo: url("/images/sky-aurora-purple-neon.png");
+  --atmosphere-photo: url("/images/sky-aurora-purple-neon.webp");
   --atmosphere-position: 55% 28%;
   --atmosphere-photo-opacity: 0.72;
   --atmosphere-scrim: var(--scrim-hero-deep);
 }
 
 .atmosphere--flow {
-  --atmosphere-photo: url("/images/abstract-teal-waves-neon.png");
+  --atmosphere-photo: url("/images/abstract-teal-waves-neon.webp");
   --atmosphere-position: center 55%;
   --atmosphere-photo-opacity: 0.68;
   --atmosphere-scrim: var(--scrim-hero);
 }
 
 .atmosphere--iris {
-  --atmosphere-photo: url("/images/macro-blue-grey-eye.png");
+  --atmosphere-photo: url("/images/macro-blue-grey-eye.webp");
   --atmosphere-position: 65% 40%;
   --atmosphere-photo-opacity: 0.64;
   --atmosphere-scrim: var(--scrim-hero);
 }
 
 .atmosphere--flare {
-  --atmosphere-photo: url("/images/abstract-neon-purple-flare.png");
+  --atmosphere-photo: url("/images/abstract-neon-purple-flare.webp");
   --atmosphere-position: 80% 35%;
   --atmosphere-photo-opacity: 0.6;
   --atmosphere-scrim: var(--scrim-hero);
 }
 
 .atmosphere--form {
-  --atmosphere-photo: url("/images/abstract-black-flower-cyan.png");
+  --atmosphere-photo: url("/images/abstract-black-flower-cyan.webp");
   --atmosphere-position: 92% 78%;
   --atmosphere-photo-opacity: 0.5;
   --atmosphere-scrim: var(--scrim-light);
@@ -170,14 +170,14 @@
 }
 
 .atmosphere--ground {
-  --atmosphere-photo: url("/images/succulent-agave-teal-topdown.png");
+  --atmosphere-photo: url("/images/succulent-agave-teal-topdown.webp");
   --atmosphere-position: center 38%;
   --atmosphere-photo-opacity: 0.62;
   --atmosphere-scrim: var(--scrim-hero);
 }
 
 .atmosphere--urban {
-  --atmosphere-photo: url("/images/urban-towers-worms-eye.png");
+  --atmosphere-photo: url("/images/urban-towers-worms-eye.webp");
   --atmosphere-position: 50% 92%;
   --atmosphere-photo-opacity: 0.56;
   --atmosphere-scrim: var(--scrim-hero-deep);
@@ -188,7 +188,7 @@
 }
 
 .atmosphere--ink {
-  --atmosphere-photo: url("/images/abstract-pink-blue-ink-swirl.png");
+  --atmosphere-photo: url("/images/abstract-pink-blue-ink-swirl.webp");
   --atmosphere-position: 72% 38%;
   --atmosphere-photo-opacity: 0.4;
   --atmosphere-scrim: var(--scrim-light);
@@ -199,14 +199,14 @@
 }
 
 .atmosphere--rainbow {
-  --atmosphere-photo: url("/images/sky-rainbow-arc-cyan.png");
+  --atmosphere-photo: url("/images/sky-rainbow-arc-cyan.webp");
   --atmosphere-position: 50% 78%;
   --atmosphere-photo-opacity: 0.5;
   --atmosphere-scrim: var(--scrim-hero-deep);
 }
 
 .atmosphere--bloom {
-  --atmosphere-photo: url("/images/flowers-plumeria-pink-yellow.png");
+  --atmosphere-photo: url("/images/flowers-plumeria-pink-yellow.webp");
   --atmosphere-position: 88% 42%;
   --atmosphere-photo-opacity: 0.34;
   --atmosphere-scrim: var(--scrim-light);
@@ -218,7 +218,7 @@
 }
 
 .atmosphere--diagram {
-  --atmosphere-photo: url("/images/diagram-flow-susan-yin.png");
+  --atmosphere-photo: url("/images/diagram-flow-susan-yin.webp");
   --atmosphere-position: 96% 22%;
   --atmosphere-photo-opacity: 0.26;
   --atmosphere-scrim: var(--scrim-light);
@@ -230,14 +230,14 @@
 }
 
 .atmosphere--magenta {
-  --atmosphere-photo: url("/images/abstract-neon-magenta-bar.png");
+  --atmosphere-photo: url("/images/abstract-neon-magenta-bar.webp");
   --atmosphere-position: 78% 35%;
   --atmosphere-photo-opacity: 0.46;
   --atmosphere-scrim: var(--scrim-hero);
 }
 
 .atmosphere--artomat {
-  --atmosphere-photo: url("/images/retro-yellow-artomat-vending.png");
+  --atmosphere-photo: url("/images/retro-yellow-artomat-vending.webp");
   --atmosphere-position: 18% 50%;
   --atmosphere-photo-opacity: 0.32;
   --atmosphere-scrim: var(--scrim-light);

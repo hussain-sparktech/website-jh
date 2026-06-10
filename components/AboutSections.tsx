@@ -4,8 +4,8 @@ import { AboutFigure } from "@/components/AboutMedia";
 import type { AboutContent } from "@/lib/aboutContent";
 import type { Language } from "@/lib/i18n";
 
-const PORTRAIT_PRIMARY = "/images/JasnimaHasnagbegovic-1.png";
-const PORTRAIT_SECONDARY = "/images/JasnimaHasnagbegovic-2.png";
+const PORTRAIT_PRIMARY = "/images/JasnimaHasnagbegovic-1.webp";
+const PORTRAIT_SECONDARY = "/images/JasnimaHasnagbegovic-2.webp";
 
 export function CTAButton({ href, children }: { href: string; children: ReactNode }) {
   return (

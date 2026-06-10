@@ -1,18 +1,16 @@
 /** Client photography — paths for atmosphere layers and hero visuals */
 export const siteImagery = {
-  aurora: "/images/sky-aurora-purple-neon.png",
-  glow: "/images/abstract-neon-multicolor-glow.png",
-  glowAlt: "/images/abstract-neon-multicolor-glow-2.png",
-  waves: "/images/abstract-teal-waves-neon.png",
-  flower: "/images/abstract-black-flower-cyan.png",
-  flare: "/images/abstract-neon-purple-flare.png",
-  eye: "/images/macro-blue-grey-eye.png",
-  grass: "/images/succulent-agave-teal-topdown.png",
-  towers: "/images/urban-towers-worms-eye.png",
-  ink: "/images/abstract-pink-blue-ink-swirl.png",
-  rainbow: "/images/sky-rainbow-arc-cyan.png",
-  bloom: "/images/flowers-plumeria-pink-yellow.png",
-  diagram: "/images/diagram-flow-susan-yin.png",
-  magenta: "/images/abstract-neon-magenta-bar.png",
-  artomat: "/images/retro-yellow-artomat-vending.png"
+  aurora: "/images/sky-aurora-purple-neon.webp",
+  waves: "/images/abstract-teal-waves-neon.webp",
+  flower: "/images/abstract-black-flower-cyan.webp",
+  flare: "/images/abstract-neon-purple-flare.webp",
+  eye: "/images/macro-blue-grey-eye.webp",
+  grass: "/images/succulent-agave-teal-topdown.webp",
+  towers: "/images/urban-towers-worms-eye.webp",
+  ink: "/images/abstract-pink-blue-ink-swirl.webp",
+  rainbow: "/images/sky-rainbow-arc-cyan.webp",
+  bloom: "/images/flowers-plumeria-pink-yellow.webp",
+  diagram: "/images/diagram-flow-susan-yin.webp",
+  magenta: "/images/abstract-neon-magenta-bar.webp",
+  artomat: "/images/retro-yellow-artomat-vending.webp"
 } as const;
